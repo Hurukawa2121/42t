@@ -1,24 +1,34 @@
-void	*ft_memset(void *s, int c, unsigned n)
+#include <stdlib.h>
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int	i;
+	size_t			i;
+	unsigned char	*buf;
 
 	i = 0;
-	while(i < n)
+	buf = (unsigned char *)s;
+	while (i < n)
 	{
-		((unsigned char *)s)[i] = c;
+		buf[i] = (unsigned char)c;
 		i++;
 	}
+	return (s);
 }
-
+/*
 #include <stdio.h>
+#include <string.h>
 int	main(void)
 {
-	char	a[5] = "Hello";
-	
-	printf("%s\n", a);
+	char	a[];
+	char	b[];
 
-	ft_memset(a, '1', 5);
-
-	printf("%s\n", a);
+	a[] = "Hello";
+	b[] = "Hello";
+	ft_memset(a, '2', 3);
+    memset(b, '2', 3);
+    printf("ft : %s\n", a);
+    printf("or : %s\n\n", b);
+	printf("ft : %s\n", (char *)ft_memset("Hello", '2', 0));
+	printf("or : %s\n", (char *)memset("Hello", '2', 0));
 	return (0);
 }
+*/

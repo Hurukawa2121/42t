@@ -1,35 +1,50 @@
-void *ft_memmove(void *s1, const void *s2, unsigned n)
+#include <stdlib.h>
+
+unsigned int	ft_strlen(const char *a)
 {
-	int				i;
-	unsigned char	tmp[n];
+	unsigned int	i;
 
 	i = 0;
-	while(i < n)
-	{
-		tmp[i] = ((unsigned char *)s2)[i];
+	while (a[i])
 		i++;
-	}
-	i = 0;
-	while(i < n)
-	{
-		((unsigned char *)s1)[i] = tmp[i];
-		i++;
-	}
+	return (i);
 }
 
+void	*ft_memmove(void *s1, const void *s2, size_t n)
+{
+	int	cp_size;
+
+	cp_size = ft_strlen(s2);
+	if (cp_size > (int) n)
+		cp_size = n;
+	cp_size--;
+	while (cp_size >= 0)
+	{
+		((unsigned char *)s1)[cp_size] = ((unsigned char *)s2)[cp_size];
+		cp_size--;
+	}
+	return (s1);
+}
+/*
 #include <stdio.h>
-#include <unistd.h>
+#include <string.h>
 int	main(void)
 {
-	char	s[10] = "HelloWorld";
-	
-	printf("%s\n", s);
+	char s1[] = "Hello";
+	char s2[] = "Hello";
 
-	ft_memmove(s, s + 3, 4);
+	ft_memmove(s1 + 2, s1, 3);
+	memmove(s2 + 2, s2, 3);
+	printf("ft : %s\n", s1);
+	printf("or : %s\n\n", s2);
 
-	printf("%s\n", s);
-	write(1, s, 4);
-	write(1, "\n", 1);
-	
+	strcpy(s1, "Hello");
+	strcpy(s2, "Hello");
+
+	ft_memmove(s1 + 2, s1, 0);
+	memmove(s2 + 2, s2, 0);
+	printf("ft : %s\n", s1);
+	printf("or : %s\n", s2);
 	return (0);
 }
+*/

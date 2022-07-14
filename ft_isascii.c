@@ -5,12 +5,16 @@ int	ft_isascii(int c)
 	else
 		return (0);
 }
-
+/*
+#include <ctype.h>
 #include <stdio.h>
 int	main(void)
 {
-	printf("%d\n", ft_isascii('d'));
-	printf("%d\n", ft_isascii('?'));
-	printf("%d\n", ft_isascii('\n'));
+	printf("ft : %d\n", ft_isascii('d'));
+	printf("or : %d\n\n", isascii('d'));
+
+	printf("ft : %d\n", ft_isascii(128));
+	printf("or : %d\n", isascii(128));
 	return (0);
 }
+*/

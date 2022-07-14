@@ -1,20 +1,10 @@
 #include <unistd.h>
 
-size_t	ft_strlen(const char *a)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (a[i])
-		i++;
-	return (i);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (!*s)
+	if (!c)
 		return ;
-	write(fd, s, ft_strlen(s));
+	write(fd, &c, 1);
 }
 /*
 #include <fcntl.h>
@@ -24,7 +14,7 @@ int	main(void)
 	int	fd;
 
 	fd = open("./testfile", O_WRONLY | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO);
-	ft_putstr_fd("Helllo", fd);
+	ft_putchar_fd('A', fd);
 	if (close(fd))
 		return (1);
 	return (0);

@@ -1,32 +1,41 @@
-unsigned char	ft_strlcpy(char *dest, const char *src, unsigned int size)
+#include <stdlib.h>
+size_t	ft_strlen(const char *a)
 {
-	int	dest_digit;
-	int	i;
+	size_t	i;
 
-	dest_digit = 0;
-	while (dest[dest_digit])
-		dest_digit++;
 	i = 0;
-	while (i < size && src[i])
+	while (a[i])
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (src[i] && i < size - 1)
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	if (size > dest_digit)
-		dest[i] = '\0';
-	return (*dest);
+	dest[i] = '\0';
+	return (ft_strlen(src));
 }
-
-#include<stdio.h>
-int	main()
+/*
+#include <stdio.h>
+#include <string.h>
+int	main(void)
 {
-	char s[6];
+	char s1[] = "11111";
+	char s2[] = "22222";
+	char s3[] = "33333";
+	char s4[] = "44444";
 
-	ft_strlcpy(s, "Hello", 3);
-    printf("%s\n", s);
-
-	ft_strlcpy(s, "Hello", 7);
-    printf("%s\n", s);
-
-    return (0);
+	printf("%ld, %s\n", ft_strlcpy(s1, "Hello", 3), s1);
+	printf("%ld, %s\n", ft_strlcpy(s2, "Hello", 7), s2);
+	printf("%ld, %s\n", ft_strlcpy(s3, "Hello", 1), s3);
+	printf("%ld, %s\n", ft_strlcpy(s3, "Hello", 0), s4);
+	return (0);
 }
+*/

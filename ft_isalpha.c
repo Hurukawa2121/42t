@@ -5,13 +5,15 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
-
+/*
+#include <ctype.h>
 #include <stdio.h>
 int	main(void)
 {
-	printf("%d\n", ft_isalpha('d'));
-	printf("%d\n", ft_isalpha('D'));
-	printf("%d\n", ft_isalpha('1'));
-	printf("%d\n", ft_isalpha('?'));
+	printf("ft : %d\n", ft_isalpha('d'));
+	printf("or : %d\n\n", isalpha('d'));
+
+	printf("ft : %d\n", ft_isalpha('?'));
+	printf("or : %d\n", isalpha('?'));
 	return (0);
-}
+}*/

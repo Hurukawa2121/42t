@@ -1,40 +1,52 @@
-#include<stdlib.h>
-void	ft_bzero(void *s, unsigned n)
+#include <stdlib.h>
+#define SIZE_MAX 65535
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int	i;
+	size_t			i;
+	unsigned char	*buf;
 
 	i = 0;
-	while(i < n)
+	buf = (unsigned char *)s;
+	while (i < n)
 	{
-		((unsigned char *)s)[i] = '\0';
+		buf[i] = (unsigned char)c;
 		i++;
 	}
+	return (s);
 }
 
-void	*ft_calloc(unsigned int nmemb, unsigned int size)
+void	ft_bzero(void *s, size_t n)
 {
-    void    *ans;
-
-    if (nmemb == 0 || size == 0)
-    {
-        nmemb = 1;
-        size = 1;
-    }
-    ans = malloc(nmemb * size);
-    if (!ans)
-        return (ans);
-    ft_bzero(ans, nmemb * size);
-    return (ans);
+	ft_memset(s, '\0', n);
 }
 
-#include<stdio.h>
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ans;
+
+	if (size > 0 && nmemb > SIZE_MAX / size)
+		return (0);
+	if (nmemb == 0 || size == 0)
+	{
+		nmemb = 1;
+		size = 1;
+	}
+	ans = malloc(nmemb * size);
+	if (!ans)
+		return (NULL);
+	ft_bzero(ans, nmemb * size);
+	return (ans);
+}
+/*
+#include <stdio.h>
 int	main(void)
 {
-    int *s;
-    
+	int *s;
+
 	s = ft_calloc(4, sizeof(char));
-    for (int i = 0; i < 4; i++)
-	    printf("%d\n", s[i]);
+	for (int i = 0; i < 4; i++)
+		printf("%d\n", s[i]);
 	free(s);
-    return (0);
-}
+	return (0);
+}*/

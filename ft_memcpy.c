@@ -1,29 +1,35 @@
-void *ft_memcpy(void *s1, const void *s2, unsigned n)
+# include <stdlib.h>
+void	*ft_memcpy(void *s1, const void *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
 		((unsigned char *)s1)[i] = ((unsigned char *)s2)[i];
 		i++;
 	}
+	return (s1);
 }
-
+/*
 #include <stdio.h>
-#include <unistd.h>
+#include <string.h>
 int	main(void)
 {
-	char	a[5] = "11111";
-	char	b[5] = "World";
+	char a1[] = "11111";
+	char a2[] = "11111";
+	char b[] = "World";
 
-	printf("%s\n", a);
-	write(1, a, 5);
+	ft_memcpy(a1, b, 3);
+	memcpy(a2, b, 3);
+	printf("ft : %s\n", a1);
+	printf("or : %s\n\n", a2);
 
-	ft_memcpy(a, b, 3);
+	memset(a1, '1', 5);
+	memset(a2, '1', 5);
 
-	printf("\n%s\n", a);
-	write(1, a, 5);
-	printf("\n");
+	printf("ft : %s\n", (char *)ft_memcpy(a1, b, 0));
+	printf("or : %s\n", (char *)memcpy(a2, b, 0));
 	return (0);
 }
+*/

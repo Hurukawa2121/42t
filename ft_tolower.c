@@ -1,13 +1,15 @@
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if ('A' <= c && c <= 'Z')
-		c += 32;
+		c += 'a' - 'A';
 	return (c);
 }
-
+/*
 #include <stdio.h>
 int	main(void)
 {
 	printf("%c\n", ft_toupper('R'));
+	printf("%c\n", ft_toupper('?'));
 	return (0);
 }
+*/

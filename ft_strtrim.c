@@ -1,75 +1,78 @@
 #include <stdlib.h>
-unsigned int	ft_strlen(const char *a)
+size_t	ft_strlen(const char *a)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while(a[i])
+	while (a[i])
 		i++;
 	return (i);
 }
 
-unsigned int	ft_L_cmp(const char *s1, const char *set, const int s1_dig, const int set_dig)
+unsigned int	ft_set_cmp(const char *set, const char c)
 {
 	int	i;
 
 	i = 0;
-	while (i < set_dig)
+	while (set[i])
 	{
-		if (s1[s1_dig - 1 - i] != set[set_dig - 1 - i])
+		if (set[i] == c)
 			return (1);
 		i++;
 	}
-  	return (0);
+	return (0);
 }
 
-unsigned int	ft_F_cmp(const char *s1, const char *set, const int set_dig)
+unsigned int	ft_F_search(const char *s, const char *set)
 {
 	int	i;
 
 	i = 0;
-	while (i < set_dig)
-	{
-		if (s1[i] != set[i])
-			return (1);
+	while (ft_set_cmp(set, s[i]))
 		i++;
-	}
-  	return (0);
+	return (i);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+unsigned int	ft_L_search(const char *s, const char *set)
+{
+	int	total_dig;
+
+	total_dig = ft_strlen(s) - 1;
+	while (total_dig && ft_set_cmp(set, s[total_dig]))
+		total_dig--;
+	return (total_dig);
+}
+
+char	*ft_strtrim(char const *s, char const *set)
 {
 	int		start;
 	int		end;
-	int		set_dig;
 	int		i;
 	char	*ans;
 
-	start = 0;
-	end = ft_strlen(s1);
-	set_dig = ft_strlen(set);
-	if (!ft_L_cmp(s1, set, end, set_dig))
-		end = end - set_dig;
-	if (!ft_F_cmp(s1, set, set_dig))
-		start = start + set_dig;
-	ans = malloc(sizeof(char) * (end - start));
+	start = ft_F_search(s, set);
+	end = ft_L_search(s, set) + 1;
+	ans = malloc(sizeof(char) * (end - start + 1));
+	if (!ans)
+		return (NULL);
 	i = 0;
 	while (start + i < end)
 	{
-			ans[i] = s1[start + i];
-			i++;
+		ans[i] = s[start + i];
+		i++;
 	}
 	ans[i] = '\0';
 	return (ans);
 }
-
+/*
 #include <stdio.h>
-int main()
+int	main(void)
 {
-	char *a;
+	char	*a;
 
-	a = ft_strtrim("xxxHelloxxx", "xxx");
+	a = ft_strtrim("1234AAAA22341134", "1234");
 	printf("%s\n", a);
 	free(a);
-	return 0;
+	return (0);
 }
+*/

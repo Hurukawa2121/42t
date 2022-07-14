@@ -1,22 +1,24 @@
-void	*ft_memchr(const void *s, int c, unsigned int n)
+#include <stdlib.h>
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
 		if (((unsigned char *)s)[i] == c)
 			return ((unsigned char *)(s + i));
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
-
-#include<stdio.h>
-#include<string.h>
+/*
+#include <stdio.h>
+#include <string.h>
 int	main(void)
 {
-	printf("%s\n", (char *)ft_memchr("Hello", 'l', 5));
-	printf("if nothing : %s\n", (char *)ft_memchr("Hello", 'x', 5));
+	printf("ft : %s\n", (char *)ft_memchr("Hello", 'l', 10));
+	printf("or : %s\n", (char *)memchr("Hello", 'l', 10));
 	return (0);
 }
+*/
