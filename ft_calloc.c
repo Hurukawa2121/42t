@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#define SIZE_MAX 65535
+#include <stdint.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
