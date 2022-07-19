@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/17 18:16:42 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/18 10:43:15 by sfurukaw         ###   ########.fr       */
+/*   Created: 2022/07/19 17:18:02 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/19 17:29:50 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isprint(int c)
+# include "libft.h"
+void ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	return (' ' <= c && c <= '~');
+    if (!lst || !del)
+		return ;
+	(*del)((*lst).content);
+	free (lst);
 }
 
-#include <ctype.h>
+/*
+void	ft_del(void *content)
+{
+	content = 0;
+	free(content);
+}
+
 #include <stdio.h>
 int	main(void)
 {
-	printf("ft : %d\n", ft_isprint('d'));
-	printf("or : %d\n\n", isprint('d'));
-	
-	printf("ft : %d\n", ft_isprint('\0'));
-	printf("or : %d\n", isprint('\0'));
+	t_list	*a = ft_lstnew("A");
+	t_list	*b = ft_lstnew("B");
+
+	(*a).next = b;
+	printf("%p\n", (*a).next);
+	ft_lstdelone(b, ft_del);
+	printf("%p\n\n", (*a).next);
+
+	free (a);
 	return (0);
 }
+*/

@@ -1,18 +1,20 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:17:50 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/17 18:18:43 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t	ft_strlen(const char *a)
-{
-	size_t	i;
-
-	i = 0;
-	while (a[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!*s)
+	if (!s)
 		return ;
 	write(fd, s, ft_strlen(s));
 }

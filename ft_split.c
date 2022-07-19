@@ -1,105 +1,97 @@
-#include <stdlib.h>
-int	ft_strlen(const char *a)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:18:22 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/18 18:25:26 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+static int	ft_num_sector(const char *str, char c)
 {
-	int	i;
+	int	sum_sector;
+	int	flg_now_sep;
 
-	i = 0;
-	while (a[i])
-		i++;
-	return (i);
-}
-
-char	**ft_double_pointer_NULL(char **ans)
-{
-	ans = malloc(sizeof(char *));
-	if (!ans)
-		return (NULL);
-	*ans = malloc(sizeof(char));
-	return (NULL);
-}
-
-unsigned int	ft_must_mem(const char *a, char c)
-{
-	int	i;
-	int	n;
-
-	if (a[0] == '\0')
-		return (0);
-	i = 0;
-	n = 0;
-	while (a[i])
+	sum_sector = 0;
+	flg_now_sep = 1;
+	while (*str)
 	{
-		if (a[i] == c && (i > 0 && a[i - 1] != c))
-			n++;
+		if (*str != c && flg_now_sep)
+		{
+			flg_now_sep = 0;
+			sum_sector++;
+		}
+		else if (*str == c)
+			flg_now_sep = 1;
+		str++;
+	}
+	return (sum_sector);
+}
+
+static char	*ft_fromS_toF(const char *str, int start, int finish)
+{
+	int		i;
+	char	*sub_str;
+
+	i = 0;
+	sub_str = malloc(sizeof(char) * (finish - start + 1));
+	while (start + i < finish)
+	{
+		sub_str[i] = str[start + i];
 		i++;
 	}
-	if (a[i - 1] != c)
-		n++;
-	return (n);
-}
-
-char	*ft_strdup_tillc(char *a, const char *b, char c)
-{
-	int	i;
-
-	i = 0;
-	while (b[i] && b[i] != c)
-		i++;
-	a = malloc(sizeof(char) * (i + 1));
-	if (!a)
-		return (NULL);
-	a[i] = '\0';
-	while (i > 0)
-	{
-		i--;
-		a[i] = b[i];
-	}
-	return (a);
+	sub_str[i] = '\0';
+	return (sub_str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**ans;
-	int		s_len;
-	int		s_num;
+	size_t	i;
+	size_t	i_splits;
+	int		sub_end;
+	char	**splits;
 
-	if (*s == '\0' || !ft_must_mem(s, c))
+	if (!s || !(splits = malloc((ft_num_sector(s, c) + 1) * sizeof(char *))))
 		return (NULL);
-	s_len = ft_strlen(s) - 1;
-	s_num = ft_must_mem(s, c) - 1;
-	ans = malloc(sizeof(char *) * ((s_num + 1)));
-	if (!ans)
-		return (NULL);
-	while (s_len >= 0)
+	i = 0;
+	i_splits = 0;
+	sub_end = -1;
+	while (i <= ft_strlen(s))
 	{
-		if ((s_len == 0 || (s_len > 0 && s[s_len - 1] == c)) && s[s_len] != c)
+		if (s[i] != c && sub_end < 0)
+			sub_end = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && sub_end >= 0)
 		{
-			ans[s_num] = ft_strdup_tillc(ans[s_num], s + s_len, c);
-			if (ans[s_num] == NULL)
-				return (NULL);
-			s_num--;
+			splits[i_splits] = ft_fromS_toF(s, sub_end, i);
+			i_splits++;
+			sub_end = -1;
 		}
-		s_len--;
+		i++;
 	}
-	return (ans);
+	splits[i_splits] = 0;
+	return (splits);
 }
 /*
 #include <stdio.h>
 int	main(void)
 {
 	char **a;
-	const char b[] = "How Are You?";
+	const char b[] = "Who are you too?";
 	char c = 'o';
 	
 	a = ft_split(b, c);
-	for (int i = 0; i < (int)ft_must_mem(b, c); i++)
+	for (int i = 0; i < (int)ft_num_sector(b, c); i++)
 	{
 		printf("\"%s\"", a[i]);
-		if (i + 1 != (int)ft_must_mem(b, c))
+		if (i + 1 != (int)ft_num_sector(b, c))
 			printf(", ");
 	}
 	printf("\n");
-	for (int i = 0; i < (int)ft_must_mem(b, c); i++)
+	for (int i = 0; i < (int)ft_num_sector(b, c); i++)
 		free(a[i]);
 	free(a);
 	return (0);

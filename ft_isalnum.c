@@ -1,25 +1,20 @@
-int	ft_isalpha(int c)
-{
-	if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'))
-		return (1);
-	else
-		return (0);
-}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 17:46:41 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/17 17:46:43 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_isdigit(int c)
-{
-	if ('0' <= c && c <= '9')
-		return (1);
-	else
-		return (0);
-}
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	else
-		return (0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
 /*
 #include <ctype.h>
@@ -31,7 +26,7 @@ int	main(void)
 
 	printf("ft : %d\n", ft_isalnum('1'));
 	printf("or : %d\n\n", isalnum('1'));
-
+	
 	printf("ft : %d\n", ft_isalnum('?'));
 	printf("or : %d\n", isalnum('?'));
 	return (0);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:16:59 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/18 11:43:49 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 unsigned int	ft_signed_digit(int n)
@@ -34,11 +46,12 @@ char	*ft_itoa_min(void)
 	int		i;
 
 	cut_min = 147483648;
-	ans = malloc(sizeof(char) * 11);
+	ans = malloc(sizeof(char) * 12);
 	if (!ans)
 		return (0);
 	ans[0] = '-';
 	ans[1] = '2';
+	ans[11] = '\0';
 	i = 10;
 	while (i > 1)
 	{
@@ -63,7 +76,11 @@ char	*ft_itoa(int n)
 	if (!ans)
 		return (0);
 	if (n < 0)
+	{
 		ans[0] = '-';
+		n *= -1;
+	}
+	ans[size] = '\0';
 	while (n != 0)
 	{
 		size--;

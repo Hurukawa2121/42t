@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 17:46:57 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/17 17:46:58 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_atoi(const char *s)
 {
 	int	i;
 	int	ans;
-	int	nega_flag;
+	int	flg_sign;
 
 	i = 0;
 	ans = 0;
-	nega_flag = 0;
+	flg_sign = 0;
 	while (s[i] == ' ')
 		i++;
 	if (s[i] == '-' || s[i] == '+')
 	{
 		if (s[i] == '-')
-			nega_flag++;
+			flg_sign++;
 		i++;
 	}
 	while ('0' <= s[i] && s[i] <= '9')
@@ -20,7 +32,7 @@ int	ft_atoi(const char *s)
 		ans = 10 * ans + s[i] - '0';
 		i++;
 	}
-	if (nega_flag)
+	if (flg_sign)
 		ans *= -1;
 	return (ans);
 }

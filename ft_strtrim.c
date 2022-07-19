@@ -1,15 +1,18 @@
-#include <stdlib.h>
-size_t	ft_strlen(const char *a)
-{
-	size_t	i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:19:50 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/19 11:59:40 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	i = 0;
-	while (a[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
-unsigned int	ft_set_cmp(const char *set, const char c)
+static int	ft_set_cmp(const char *set, const char c)
 {
 	int	i;
 
@@ -23,26 +26,6 @@ unsigned int	ft_set_cmp(const char *set, const char c)
 	return (0);
 }
 
-unsigned int	ft_F_search(const char *s, const char *set)
-{
-	int	i;
-
-	i = 0;
-	while (ft_set_cmp(set, s[i]))
-		i++;
-	return (i);
-}
-
-unsigned int	ft_L_search(const char *s, const char *set)
-{
-	int	total_dig;
-
-	total_dig = ft_strlen(s) - 1;
-	while (total_dig && ft_set_cmp(set, s[total_dig]))
-		total_dig--;
-	return (total_dig);
-}
-
 char	*ft_strtrim(char const *s, char const *set)
 {
 	int		start;
@@ -50,8 +33,14 @@ char	*ft_strtrim(char const *s, char const *set)
 	int		i;
 	char	*ans;
 
-	start = ft_F_search(s, set);
-	end = ft_L_search(s, set) + 1;
+	if (!s || !set)
+		return (NULL);
+	start = 0;
+	while (s[start] && ft_set_cmp(set, s[start]))
+		start++;
+	end = ft_strlen(s);
+	while (end > start && ft_set_cmp(set, s[end - 1]))
+		end--;
 	ans = malloc(sizeof(char) * (end - start + 1));
 	if (!ans)
 		return (NULL);
@@ -69,10 +58,19 @@ char	*ft_strtrim(char const *s, char const *set)
 int	main(void)
 {
 	char	*a;
+	char	*b;
+	char	*c;
+	char	*d;
 
 	a = ft_strtrim("1234AAAA22341134", "1234");
-	printf("%s\n", a);
+	b = ft_strtrim("123422341134", "1234");
+	c = ft_strtrim("", "1234");
+	d = ft_strtrim("1234AAAA22341134", "");
+	printf("%s\n%s\n%s\n%s\n", a, b, c, d);
 	free(a);
+	free(b);
+	free(c);
+	free(d);
 	return (0);
 }
 */

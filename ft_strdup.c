@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:19:06 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/17 18:19:32 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 void	ft_strcpy(char *s, const char *t)
 {
 	int	i;
 
 	i = 0;
-	while (t[i] != '\0')
+	while (t[i])
 	{
 		s[i] = t[i];
 		i++;
@@ -14,15 +26,15 @@ void	ft_strcpy(char *s, const char *t)
 
 char	*ft_strdup(const char *s)
 {
-	int		i;
+	size_t		i;
 	char	*ans;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i])
 		i++;
 	ans = malloc(sizeof(char) * (i + 1));
 	if (!ans)
-		return (0);
+		return (NULL);
 	ft_strcpy(ans, s);
 	return (ans);
 }

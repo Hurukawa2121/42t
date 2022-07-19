@@ -1,18 +1,16 @@
-#include <stdlib.h>
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t			i;
-	unsigned char	*buf;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:16:16 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/17 18:16:17 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	i = 0;
-	buf = (unsigned char *)s;
-	while (i < n)
-	{
-		buf[i] = (unsigned char)c;
-		i++;
-	}
-	return (s);
-}
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

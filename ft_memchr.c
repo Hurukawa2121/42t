@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:17:04 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/17 18:17:25 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
+
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
@@ -7,7 +20,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (((unsigned char *)s)[i] == c)
-			return ((unsigned char *)(s + i));
+			return ((void *)(s + i));
 		i++;
 	}
 	return (NULL);

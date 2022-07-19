@@ -1,25 +1,31 @@
-#include <stdlib.h>
-size_t	ft_strlen(const char *a)
-{
-	size_t	i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:19:21 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/18 20:23:11 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	i = 0;
-	while (a[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 
+	if (!dest || !src)
+		return (0);
 	i = 0;
-	while (src[i] && i < size - 1)
+	while (src[i] && i + 1 < size)
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	if (size > 0)
+		dest[i] = '\0';
 	return (ft_strlen(src));
 }
 /*
@@ -30,12 +36,14 @@ int	main(void)
 	char s1[] = "11111";
 	char s2[] = "22222";
 	char s3[] = "33333";
-	char s4[] = "44444";
+	char s4[] = "";
+	char s5[] = "55555";
 
 	printf("%ld, %s\n", ft_strlcpy(s1, "Hello", 3), s1);
 	printf("%ld, %s\n", ft_strlcpy(s2, "Hello", 7), s2);
-	printf("%ld, %s\n", ft_strlcpy(s3, "Hello", 1), s3);
-	printf("%ld, %s\n", ft_strlcpy(s3, "Hello", 0), s4);
+	printf("%ld, %s\n", ft_strlcpy(s3, "", 1), s3);
+	printf("%ld, %s\n", ft_strlcpy(s4, "Hello", 1), s4);
+	printf("%ld, %s\n", ft_strlcpy(s5, "Hello", 0), s5);
 	return (0);
 }
 */

@@ -1,15 +1,17 @@
-#include <stdlib.h>
-unsigned int	ft_strlen(const char *a)
-{
-	unsigned int	i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:19:53 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/19 12:12:55 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	i = 0;
-	while (a[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strncpy(char *s, const char *t, size_t n)
+#include "libft.h"
+static char	*ft_strncpy(char *s, const char *t, size_t n)
 {
 	size_t	i;
 
@@ -26,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ans;
 
-	if (start >= ft_strlen(s) || !len)
+	if (start >= (unsigned int)ft_strlen(s) || !len)
 	{
 		ans = malloc(sizeof(char));
 		return (ans);
@@ -34,7 +36,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ans = malloc(sizeof(char) * len);
 	if (!ans)
 		return (NULL);
-	ans = ft_strncpy(ans, s + start - 1, len);
+	ans = ft_strncpy(ans, s + start, len);
 	return (ans);
 }
 /*
@@ -42,10 +44,22 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 int	main(void)
 {
 	char	*a;
+	char	*b;
+	char	*c;
+	char	*d;
+	char	*e;
 
-	a = ft_substr("hello", 2, 3);
-	printf("%s\n", a);
+	a = ft_substr("hello", 2, 2);
+	b = ft_substr("hello", 2, 0);
+	c = ft_substr("hello", 2, 10);
+	d = ft_substr("", 2, 3);
+	e = ft_substr("", 0, 3);
+	printf("%s\n%s\n%s\n%s\n%s\n", a, b, c, d, e);
 	free(a);
+	free(b);
+	free(c);
+	free(d);
+	free(e);
 	return (0);
 }
 */

@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/17 18:16:42 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/18 10:43:15 by sfurukaw         ###   ########.fr       */
+/*   Created: 2022/07/19 17:25:50 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/19 17:25:50 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+t_list	*ft_lstnew(void *content)
 {
-	return (' ' <= c && c <= '~');
-}
+	t_list	*ans;
 
-#include <ctype.h>
+	ans = malloc(sizeof(t_list));
+	(*ans).content = content;
+	(*ans).next = NULL;
+	return (ans);
+}
+/*
 #include <stdio.h>
 int	main(void)
 {
-	printf("ft : %d\n", ft_isprint('d'));
-	printf("or : %d\n\n", isprint('d'));
-	
-	printf("ft : %d\n", ft_isprint('\0'));
-	printf("or : %d\n", isprint('\0'));
+	t_list	*a;
+
+	a = ft_lstnew("Hello");
+	printf("%s\n", (char *)(*a).content);
+	free (a);
 	return (0);
 }
+*/

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/17 18:18:57 by sfurukaw          #+#    #+#             */
+/*   Updated: 2022/07/18 19:59:49 by sfurukaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 char	*ft_strchr(const char *s, int c)
 {
@@ -19,10 +31,10 @@ char	*ft_strchr(const char *s, int c)
 #include <string.h>
 int	main(void)
 {
-	char s[5] = "Hello";
+	char *s = "Hello";
 	char *a = ft_strchr(s, 'l');
 	char *b = strchr(s, 'l');
-
+	
 	printf("ft'l' : %s\n", a);
 	printf("or'l' : %s\n\n", b);
 
@@ -30,7 +42,7 @@ int	main(void)
 	b = strchr(s, 'x');
 	printf("ft'x' : %s\n", a);
 	printf("or'x' : %s\n\n", b);
-
+	
 	a = ft_strchr(s, '\0');
 	b = strchr(s, '\0');
 	printf("ft'null' : %s\n", a);
