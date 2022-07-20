@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:17:09 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/20 22:23:08 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:24:58 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 	else
 		while (n > 0)
 		{
-			*(dst++) = *(src++);
+			*(dst) = *(src);
+			dst++;
+			src++;
 			n--;
 		}
 	return (s1);
