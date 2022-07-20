@@ -6,21 +6,21 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:02 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/19 17:29:50 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:19:24 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
-void ft_lstdelone(t_list *lst, void (*del)(void*))
+#include "libft.h"
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    if (!lst || !del)
+	if (!lst || !del)
 		return ;
 	(*del)((*lst).content);
-	free (lst);
+	free(lst);
 }
 
 /*
-void	ft_del(void *content)
+static void	ft_del(void *content)
 {
 	content = 0;
 	free(content);

@@ -6,13 +6,13 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:16:59 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/18 11:43:49 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:14:26 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-unsigned int	ft_signed_digit(int n)
+static unsigned int	ft_signed_digit(int n)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ unsigned int	ft_signed_digit(int n)
 	return (i);
 }
 
-char	*ft_itoa_zero(void)
+static char	*ft_itoa_zero(void)
 {
 	char	*ans;
 
@@ -39,7 +39,7 @@ char	*ft_itoa_zero(void)
 	return (ans);
 }
 
-char	*ft_itoa_min(void)
+static char	*ft_itoa_min(void)
 {
 	char	*ans;
 	int		cut_min;

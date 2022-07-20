@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:41 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/17 18:20:30 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:49:59 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (ans);
 }
 /*
-char	ft_toupper(unsigned int i, char c)
+static char	ft_toupper2(unsigned int i, char c)
 {
 	i++;
 	if ('a' <= c && c <= 'z')
@@ -42,7 +42,7 @@ int	main(void)
 {
 	char	*a;
 
-	a = ft_strmapi("hElLo", ft_toupper);
+	a = ft_strmapi("hElLo", ft_toupper2);
 	printf("%s\n", a);
 	free(a);
 	return (0);

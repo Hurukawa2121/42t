@@ -6,13 +6,13 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:17:44 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/17 18:18:44 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:23:30 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-unsigned int	ft_total_digit(int n)
+static unsigned int	ft_total_digit(int n)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ unsigned int	ft_total_digit(int n)
 	return (i);
 }
 
-unsigned int	ft_specific_digit(int n, int the_dig)
+static unsigned int	ft_specific_digit(int n, int the_dig)
 {
 	int	tens;
 

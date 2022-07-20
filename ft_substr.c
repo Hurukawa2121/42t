@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:53 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/19 12:12:55 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:52:17 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,35 +41,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ans = ft_strncpy(ans, s + start, len);
 	return (ans);
 }
-
-/*
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	i;
-	size_t	j;
-	char *ans;
-	
-	if (start >= (unsigned int)ft_strlen(s) || !len)
-	{
-		ans = malloc(sizeof(char));
-		return (ans);
-	}
-	ans = malloc(sizeof(char) * len);
-	if (!ans)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (start <= i && j < len)
-		{
-			ans[j] = s[i + j];
-			j++;
-		}
-		i++;
-	}
-	return (ans);
-}*/
 /*
 #include <stdio.h>
 int	main(void)

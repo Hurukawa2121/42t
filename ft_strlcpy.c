@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:21 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/18 20:23:11 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:49:00 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,4 @@ int	main(void)
 	printf("%ld, %s\n", ft_strlcpy(s4, "Hello", 1), s4);
 	printf("%ld, %s\n", ft_strlcpy(s5, "Hello", 0), s5);
 	return (0);
-}
 */

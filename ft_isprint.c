@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:16:42 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/18 10:43:15 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:13:57 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_isprint(int c)
 {
 	return (' ' <= c && c <= '~');
 }
-
+/*
 #include <ctype.h>
 #include <stdio.h>
 int	main(void)
@@ -28,3 +28,4 @@ int	main(void)
 	printf("or : %d\n", isprint('\0'));
 	return (0);
 }
+*/
