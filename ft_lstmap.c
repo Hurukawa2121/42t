@@ -18,7 +18,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 /*
 static void *f(void *content)
 {
-	//*((char *)content) -= 32;
 }
 
 static void	del(void *content)

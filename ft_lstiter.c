@@ -12,7 +12,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 /*
 void ft_initial_upper(void *content)
 {
-	//*((char *)content) -= 32;
 }
 
 #include <stdio.h>

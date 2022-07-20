@@ -34,7 +34,7 @@ char	*ft_strnstr(const char *b, const char *l, size_t n)
 			if (!b_notconst[i + tmp_i] || !l[tmp_i])
 				break ;
 		}
-		if (tmp_i == l_siz)
+		if (tmp_i == l_siz && i + tmp_i < n)
 			return (b_notconst + i);
 		i++;
 	}

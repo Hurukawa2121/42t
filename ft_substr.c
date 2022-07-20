@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static char	*ft_strncpy(char *s, const char *t, size_t n)
 {
 	size_t	i;
@@ -21,6 +22,7 @@ static char	*ft_strncpy(char *s, const char *t, size_t n)
 		s[i] = t[i];
 		i++;
 	}
+	s[i] = '\0';
 	return (s);
 }
 
@@ -33,12 +35,41 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		ans = malloc(sizeof(char));
 		return (ans);
 	}
-	ans = malloc(sizeof(char) * len);
+	ans = malloc(sizeof(char) * (len + 1));
 	if (!ans)
 		return (NULL);
 	ans = ft_strncpy(ans, s + start, len);
 	return (ans);
 }
+
+/*
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char *ans;
+	
+	if (start >= (unsigned int)ft_strlen(s) || !len)
+	{
+		ans = malloc(sizeof(char));
+		return (ans);
+	}
+	ans = malloc(sizeof(char) * len);
+	if (!ans)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (start <= i && j < len)
+		{
+			ans[j] = s[i + j];
+			j++;
+		}
+		i++;
+	}
+	return (ans);
+}*/
 /*
 #include <stdio.h>
 int	main(void)
