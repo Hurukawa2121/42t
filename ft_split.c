@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:18:22 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/20 18:25:05 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:08:41 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ char	**ft_split(char const *s, char c)
 	int		sub_end;
 	char	**splits;
 
-	if (!s || !(splits = malloc((ft_num_sector(s, c) + 1) * sizeof(char *))))
+	splits = malloc((ft_num_sector(s, c) + 1) * sizeof(char *));
+	if (!s || !splits)
 		return (NULL);
 	i = 0;
 	i_splits = 0;

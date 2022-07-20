@@ -6,10 +6,11 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:46 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/19 11:19:24 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:02:40 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 char	*ft_strnstr(const char *b, const char *l, size_t n)
 {
@@ -18,9 +19,7 @@ char	*ft_strnstr(const char *b, const char *l, size_t n)
 	size_t	tmp_i;
 	char	*b_notconst;
 
-	l_siz = 0;
-	while (l[l_siz])
-		l_siz++;
+	l_siz = ft_strlen(l);
 	b_notconst = (char *)b;
 	if (!l_siz || b_notconst == l)
 		return (b_notconst);
