@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:17:09 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/20 18:21:56 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:18:41 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 void	*ft_memmove(void *s1, const void *s2, size_t n)
 {
-	int	cp_size;
-	int	cp_limit;
+	size_t				i;
+	unsigned char		*dst;
+	unsigned char		*src;
 
-	if ((unsigned char *)s1 == (unsigned char *)s2 || !n)
-		return (s1);
-	cp_size = (int)ft_strlen(s2);
-	cp_limit = (int)ft_strlen(s1);
-	if (cp_size > (int)n)
-		cp_size = n;
-	if (cp_size > cp_limit)
-		cp_size = cp_limit;
-	cp_size--;
-	while (cp_size >= 0)
+	dst = (unsigned char*)s1;
+	src = (unsigned char*)s2;
+	if (src < dst)
 	{
-		((unsigned char *)s1)[cp_size] = ((unsigned char *)s2)[cp_size];
-		cp_size--;
+		i = 1;
+		while (i <= n)
+		{
+			dst[n - i] = src[n - i];
+			i++;
+		}
 	}
+	else
+		while (n > 0)
+		{
+			*(dst++) = *(src++);
+			n--;
+		}
 	return (s1);
 }
 /*
