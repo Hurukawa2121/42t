@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:41 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/22 11:35:12 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/22 11:44:22 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*newstr;
-	char	*str;
-	int		i;
+	unsigned int	i;
+	char			*str;
 
 	i = 0;
-	str = (char *)s;
-	if (!s)
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s)) + 1);
+	if (str == NULL)
 		return (NULL);
-	newstr = ft_calloc(ft_strlen(str) + 1, sizeof(char));
-	if (!newstr)
-		return (NULL);
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
-		newstr[i] = f(i, str[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	return (newstr);
+	str[i] = '\0';
+	return (str);
 }
 /*
 static char	ft_toupper2(unsigned int i, char c)

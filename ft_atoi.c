@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 17:46:57 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/22 11:30:58 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/22 11:40:59 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ int	ft_atoi(const char *s)
 	while ('0' <= s[i] && s[i] <= '9')
 	{
 		ans = 10 * ans + s[i] - '0';
+		if (ans < -2147483648 || 2147483647 < ans)
+			return (-1);
+		if (flg_sign && ans)
+		{
+			ans *= -1;
+			flg_sign = 0;
+		}
 		i++;
 	}
-	if (flg_sign)
-		ans *= -1;
-	if (-2147483648 <= ans && ans <= 2147483647)
-		return ((int)ans);
-	return (-1);
+	return ((int)ans);
 }
 /*
 #include <stdio.h>
