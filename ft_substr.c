@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:53 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/21 16:59:47 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/23 06:40:19 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		ans = ft_calloc(sizeof(char), 1);
 		return (ans);
 	}
-	ans = malloc(sizeof(char) * (len + 1));
+	ans = ft_calloc(sizeof(char), (len + 1));
 	if (!ans)
 		return (NULL);
 	ans = ft_strncpy(ans, s + start, len);

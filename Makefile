@@ -29,3 +29,5 @@ re: fclean all
 
 bonus: 
 	make WITH_BONUS=1
+
+.PHONEY : all clean fclean re bonus
