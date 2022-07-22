@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:16 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/20 21:48:28 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/21 10:02:48 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 
 	d_dig = ft_strlen(dest);
 	s_dig = ft_strlen(src);
+	if (!size && !dest)
+		return (s_dig);
 	if (size <= d_dig)
 		return (size + s_dig);
 	if (!dest || !src)

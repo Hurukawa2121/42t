@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:41 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/20 21:49:59 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/22 09:52:40 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*ans;
 	int		i;
 
+	if (!s || !f)
+		return (NULL);
 	ans = malloc(sizeof(char) * ft_strlen(s));
 	if (!ans)
 		return (NULL);

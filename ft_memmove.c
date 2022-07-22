@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:17:09 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/20 22:27:12 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/22 09:51:53 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 	unsigned char	*dst;
 	unsigned char	*src;
 
+	if (!s1 || !s2)
+		return (NULL);
 	dst = (unsigned char *)s1;
 	src = (unsigned char *)s2;
 	if (src < dst)

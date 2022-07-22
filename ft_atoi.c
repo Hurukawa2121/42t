@@ -6,9 +6,17 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 17:46:57 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/17 17:46:58 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/21 10:15:14 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+static int	ft_isspace(const char *a)
+{
+	if (*a == ' ' || *a == '\f' || *a == '\n' || *a == '\r' || *a == '\t'
+		|| *a == '\v')
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(const char *s)
 {
@@ -19,7 +27,7 @@ int	ft_atoi(const char *s)
 	i = 0;
 	ans = 0;
 	flg_sign = 0;
-	while (s[i] == ' ')
+	while (ft_isspace(s + i))
 		i++;
 	if (s[i] == '-' || s[i] == '+')
 	{
@@ -57,8 +65,10 @@ int	main(void)
 	printf("or : %d\n\n", atoi("   -2222222222"));
 
 	printf("ft : %d\n", ft_atoi("f6789"));
-	printf("or : %d\n", atoi("f6789"));
+	printf("or : %d\n\n", atoi("f6789"));
 
+	printf("ft : %d\n", ft_atoi("\f-2222222222"));
+	printf("or : %d\n", atoi("\f-2222222222"));
 	return (0);
 }
 */

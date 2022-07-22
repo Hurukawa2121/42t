@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:53 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/20 21:52:17 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/21 16:59:47 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (start >= (unsigned int)ft_strlen(s) || !len)
 	{
-		ans = malloc(sizeof(char));
+		ans = ft_calloc(sizeof(char), 1);
 		return (ans);
 	}
 	ans = malloc(sizeof(char) * (len + 1));
