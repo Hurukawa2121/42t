@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 17:46:57 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/22 11:47:15 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/22 12:03:15 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int	ft_isspace(const char *a)
 int	ft_atoi(const char *s)
 {
 	int	i;
-	int	ans;
 	int	flg_sign;
+	int	ans;
 
 	i = 0;
 	ans = 0;
@@ -68,7 +68,10 @@ int	main(void)
 	printf("or : %d\n\n", atoi("f6789"));
 
 	printf("ft : %d\n", ft_atoi("\f-2222222222"));
-	printf("or : %d\n", atoi("\f-2222222222"));
+	printf("or : %d\n\n", atoi("\f-2222222222"));
+	
+	printf("ft : %d\n", ft_atoi("9223372036854775800"));
+	printf("or : %d\n", atoi("9223372036854775800"));
 	return (0);
 }
 */
