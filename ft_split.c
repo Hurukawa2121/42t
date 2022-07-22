@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:18:22 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/23 06:44:58 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/23 06:58:09 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	ft_num_sector(const char *str, char c)
 	int	sum_sector;
 	int	flg_now_sep;
 
+	if (!str)
+		return (-2);
 	sum_sector = 0;
 	flg_now_sep = 1;
 	while (*str)
@@ -57,7 +59,8 @@ char	**ft_split(char const *s, char c)
 	int		sub_end;
 	char	**splits;
 
-	if (!s || !(splits = malloc((ft_num_sector(s, c) + 1) * sizeof(char *))))
+	splits = malloc((ft_num_sector(s, c) + 1) * sizeof(char *));
+	if (!splits)
 		return (NULL);
 	i = 0;
 	i_splits = 0;
@@ -65,15 +68,14 @@ char	**ft_split(char const *s, char c)
 	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && sub_end < 0)
-			sub_end = i;
+			sub_end = i++;
 		else if ((s[i] == c || i == ft_strlen(s)) && sub_end >= 0)
 		{
-			if (!(splits[i_splits] = ft_fromS_toF(s, sub_end, i)))
+			splits[i_splits] = ft_fromS_toF(s, sub_end, i++);
+			if (!splits[i_splits++])
 				return (NULL);
-			i_splits++;
 			sub_end = -1;
 		}
-		i++;
 	}
 	splits[i_splits] = 0;
 	return (splits);
