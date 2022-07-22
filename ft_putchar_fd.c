@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:17:35 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/17 18:18:48 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/22 10:10:05 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (!c)
-		return ;
 	write(fd, &c, 1);
 }
 /*
