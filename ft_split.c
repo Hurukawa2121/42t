@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:18:22 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/23 07:09:03 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/23 07:11:38 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ static char	*ft_fromS_toF(const char *str, int start, int finish)
 	return (sub_str);
 }
 
-char **ft_mal_chr(char const *s, char c)
+char	**ft_mal_chr(char const *s, char c)
 {
 	char	**splits;
-	
+
 	if (!s)
 		return (NULL);
-	splits =  malloc((ft_num_sector(s, c) + 1) * sizeof(char *));
+	splits = malloc((ft_num_sector(s, c) + 1) * sizeof(char *));
 	if (!splits)
 		return (NULL);
 	return (splits);
