@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:18:22 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/23 07:03:14 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/23 07:04:56 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ static char	*ft_fromS_toF(const char *str, int start, int finish)
 	return (sub_str);
 }
 
-char	**ft_mal_chr(char const *s, char c, char **splits)
+char	**ft_mal_chr(char const *s, char c)
 {
+	char	**splits;
+	
 	if (!s)
 		return (NULL);
 	splits =  malloc((ft_num_sector(s, c) + 1) * sizeof(char *));
@@ -67,7 +69,7 @@ char	**ft_split(char const *s, char c)
 	int		sub_end;
 	char	**splits;
 
-	splits = ft_mal_chr(s, c, splits);
+	splits = ft_mal_chr(s, c);
 	if (!splits)
 		return (NULL);
 	i = 0;
