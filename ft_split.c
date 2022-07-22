@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:18:22 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/23 07:04:56 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/23 07:09:03 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ static char	*ft_fromS_toF(const char *str, int start, int finish)
 
 	i = 0;
 	sub_str = malloc(sizeof(char) * (finish - start + 1));
-	if (!sub_str)
-		return (NULL);
 	while (start + i < finish)
 	{
 		sub_str[i] = str[start + i];
@@ -50,7 +48,7 @@ static char	*ft_fromS_toF(const char *str, int start, int finish)
 	return (sub_str);
 }
 
-char	**ft_mal_chr(char const *s, char c)
+char **ft_mal_chr(char const *s, char c)
 {
 	char	**splits;
 	
@@ -78,14 +76,14 @@ char	**ft_split(char const *s, char c)
 	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && sub_end < 0)
-			sub_end = i++;
+			sub_end = i;
 		else if ((s[i] == c || i == ft_strlen(s)) && sub_end >= 0)
 		{
-			splits[i_splits] = ft_fromS_toF(s, sub_end, i++);
-			if (!splits[i_splits++])
-				return (NULL);
+			splits[i_splits] = ft_fromS_toF(s, sub_end, i);
+			i_splits++;
 			sub_end = -1;
 		}
+		i++;
 	}
 	splits[i_splits] = 0;
 	return (splits);
