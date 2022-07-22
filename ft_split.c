@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:18:22 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/23 06:58:09 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/23 07:03:14 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static int	ft_num_sector(const char *str, char c)
 	int	sum_sector;
 	int	flg_now_sep;
 
-	if (!str)
-		return (-2);
 	sum_sector = 0;
 	flg_now_sep = 1;
 	while (*str)
@@ -52,6 +50,16 @@ static char	*ft_fromS_toF(const char *str, int start, int finish)
 	return (sub_str);
 }
 
+char	**ft_mal_chr(char const *s, char c, char **splits)
+{
+	if (!s)
+		return (NULL);
+	splits =  malloc((ft_num_sector(s, c) + 1) * sizeof(char *));
+	if (!splits)
+		return (NULL);
+	return (splits);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -59,7 +67,7 @@ char	**ft_split(char const *s, char c)
 	int		sub_end;
 	char	**splits;
 
-	splits = malloc((ft_num_sector(s, c) + 1) * sizeof(char *));
+	splits = ft_mal_chr(s, c, splits);
 	if (!splits)
 		return (NULL);
 	i = 0;
