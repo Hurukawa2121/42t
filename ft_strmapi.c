@@ -6,7 +6,7 @@
 /*   By: sfurukaw <sfurukaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:19:41 by sfurukaw          #+#    #+#             */
-/*   Updated: 2022/07/22 10:09:52 by sfurukaw         ###   ########.fr       */
+/*   Updated: 2022/07/22 10:11:38 by sfurukaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		ans[i] = f(i, s[i]);
 		i++;
 	}
-	ans[i] = f(i, s[i]);
+	ans[i] = f(i, '\0');
 	return (ans);
 }
 /*
